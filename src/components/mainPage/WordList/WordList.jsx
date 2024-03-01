@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './WordList.css';
 import { Words } from '../../Words.js';
 import WordListItem from '../WordListItem/WordListItem.jsx';
+import AddNewWord from '../addNewWord/AddNewWord.jsx';
 
 let editButton = require("../../../assets/edit-button.png");
 let deleteButton = require("../../../assets/delete-button.png")
@@ -61,6 +62,11 @@ function WordList() {
     editWord(index);
   };
 
+  // Добавление нового слова
+  const updateWords = (newWord) => {
+    setWords([...words, newWord]);
+  };
+
 
   return (
     <table>
@@ -90,6 +96,7 @@ function WordList() {
             saveButton={saveButton}
             cancelButton={cancelButton}
           />))}
+          <AddNewWord updateWords={updateWords} />
       </tbody>
 
       <tfoot>

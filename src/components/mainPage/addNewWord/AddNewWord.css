@@ -1,0 +1,25 @@
+
+
+.add-new-word {
+    transition: background-color 1s;
+    border: 1px var(--darkBlue) solid;
+    background-color: var(--blue);
+    font-family: var(--systemFont);
+    padding: 1px 60px;
+    font-size: 1.15rem;
+
+    margin: 6px 0 5px -100px;
+}
+
+.add-new-word:hover {
+    background-color: var(--yellow);
+}
+
+.add-new-word:focus,
+.add-new-word:active {
+    background-color: black;
+    transition: none;
+}
+
+
+
