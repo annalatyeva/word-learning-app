@@ -1,0 +1,10 @@
+
+:root{
+    --darkBlue: rgb(62,94,121);
+    --blue: rgb(132, 223, 235);
+    --yellow:  rgb(251, 255, 220);
+    --boxShadowColor: rgba(34, 60, 80, 0.2);
+
+    --contentFont: 'Comfortaa', sans-serif;
+    --systemFont: 'Wix Madefor Display', sans-serif;
+}

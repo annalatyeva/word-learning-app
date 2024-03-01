@@ -1,0 +1,73 @@
+table {
+    width: 68vw;
+    margin: 7px auto;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+thead, tfoot {
+    background-color: var(--blue);
+}
+
+th {
+    font-family: var(--systemFont);
+    padding: 6px;
+    border: 1px solid grey;
+}
+
+td {
+    width: 30%;
+    font-family: var(--contentFont);
+    border: 1px solid grey;
+}
+
+tr td:last-child {
+    width: 9%;
+    padding: 0;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.TableButton {
+    margin-top: 1px;
+    padding: 3px 5px 0px 5px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.TableButton img {
+    width: 25px;
+}
+
+button:hover:enabled {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 7px var(--boxShadowColor);
+    transition: box-shadow 0.5s, transform 0.5s;
+}
+
+button:active:enabled {
+    box-shadow: 0px 3px 10px 2px var(--boxShadowColor) inset;
+}
+
+td input {
+    padding: 0;
+    width: 90%;
+    height: 90%;
+    font-family: var(--contentFont);
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+td input:focus {
+    box-shadow: 0px 3px 10px 2px var(--boxShadowColor) inset;
+}
+
+.input-tr {
+    background-color: var(--yellow);
+}
