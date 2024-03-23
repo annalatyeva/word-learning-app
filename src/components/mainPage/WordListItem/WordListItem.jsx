@@ -22,12 +22,12 @@ function WordListItem({
           <td>
             <input
               type="text"
-              defaultValue={editedWord?.english || word.english}
+              defaultValue={editedWord?.foreign || word.foreign}
               onChange={(e) => {
                 const newEditedWords = [...editedWords];
                 newEditedWords[index] = {
                   ...newEditedWords[index],
-                  english: e.target.value,
+                  foreign: e.target.value,
                 };
                 setEditedWords(newEditedWords);
               }}
@@ -50,12 +50,12 @@ function WordListItem({
           <td>
             <input
               type="text"
-              defaultValue={editedWord?.russian || word.russian}
+              defaultValue={editedWord?.translated || word.translated}
               onChange={(e) => {
                 const newEditedWords = [...editedWords];
                 newEditedWords[index] = {
                   ...newEditedWords[index],
-                  russian: e.target.value,
+                  translated: e.target.value,
                 };
                 setEditedWords(newEditedWords);
               }}
@@ -78,9 +78,9 @@ function WordListItem({
         </tr>
       ) : (
         <tr>
-          <td>{word.english}</td>
+          <td>{word.foreign}</td>
           <td>[{word.transcription}]</td>
-          <td>{word.russian}</td>
+          <td>{word.translated}</td>
           <td>
             <TableButton
               image={editButton}

@@ -1,11 +1,10 @@
 function WordCard ({
     showTranslateButtonRef,
     isFinished,
-    tags,
-    english,
+    foreign,
     transcription,
     translated,
-    russian,
+    wasTranslated,
     showTranslate,
     translatedWords,
     currentIndex,
@@ -19,11 +18,10 @@ function WordCard ({
         {!isFinished
         ? 
             (<>
-            <div className='word-type'><a href="#">{tags}</a></div>
-            <div className='word-style'>{english}</div>
+            <div className='word-style'>{foreign}</div>
             <div className='transcription-style'>[{transcription}]</div>
-            {translated || translatedWords.hasOwnProperty(currentIndex.toString()) 
-            ? (<div className='translate-style'>{russian}</div>) 
+            {wasTranslated || translatedWords.hasOwnProperty(currentIndex.toString()) 
+            ? (<div className='translate-style'>{translated}</div>) 
             : (<button ref={showTranslateButtonRef} className='show-translate' onClick={showTranslate} >Показать перевод</button>)}
             </>)
         : 
@@ -36,10 +34,9 @@ function WordCard ({
 }
 
 WordCard.defaultProps = {
-    tags: 'тема',
-    english: 'слово на английском',
+    foreign: 'слово на английском',
     transcription: 'транскрипция',
-    russian: 'первод'
+    translated: 'перевод'
 };
 
 export default WordCard;

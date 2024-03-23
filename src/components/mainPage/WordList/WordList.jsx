@@ -45,9 +45,9 @@ function WordList() {
       if (i === index) {
         return {
           ...word,
-          english: editedWords[index]?.english || word.english,
+          foreign: editedWords[index]?.foreign || word.foreign,
           transcription: editedWords[index]?.transcription || word.transcription,
-          russian: editedWords[index]?.russian || word.russian,
+          translated: editedWords[index]?.translated || word.translated,
           isEdit: false,
         };
       } else {
@@ -62,7 +62,6 @@ function WordList() {
     editWord(index);
   };
 
-  // Добавление нового слова
   const updateWords = (newWord) => {
     setWords([...words, newWord]);
   };

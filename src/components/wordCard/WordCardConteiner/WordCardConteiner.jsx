@@ -14,7 +14,7 @@ let disabledPreviousButton = require("../../../assets/disabled-previous-button.p
 
 function WordCardConteiner () {
 
-  const [translated, setTranslate] = useState(false);
+  const [wasTranslated, setWasTranslate] = useState(false);
   const [translatedCount, setTranslatedCount] = useState(0);
   const [translatedWords, setTranslatedWords] = useState(() => ({}));
 
@@ -26,7 +26,7 @@ function WordCardConteiner () {
     const handleNext = () => {
         if (currentIndex < Words.length - 1) {
           setCurrentIndex(currentIndex + 1);
-          setTranslate(false);
+          setWasTranslate(false);
         } else {
           setIsFinished(true);
         }
@@ -35,7 +35,7 @@ function WordCardConteiner () {
       const handleRestart = () => {
         setCurrentIndex(0);
         setIsFinished(false);
-        setTranslate(false);
+        setWasTranslate(false);
         setTranslatedCount(0);
         setTranslatedWords({});
       };
@@ -43,12 +43,12 @@ function WordCardConteiner () {
       const handlePrevious = () => {
         if (currentIndex > 0) {
           setCurrentIndex(currentIndex - 1);
-          setTranslate(false);
+          setWasTranslate(false);
         }
       };
 
       const showTranslate = () => {
-        setTranslate(!translated);
+        setWasTranslate(!wasTranslated);
         setTranslatedCount(translatedCount + 1);
         setTranslatedWords(prevState  => ({
           ...prevState,
@@ -57,10 +57,10 @@ function WordCardConteiner () {
     };
 
     useEffect(() => {
-      if (!translated && showTranslateButtonRef.current) {
+      if (!wasTranslated && showTranslateButtonRef.current) {
         showTranslateButtonRef.current.focus();
       }
-    }, [translated, showTranslateButtonRef]);
+    }, [wasTranslated, showTranslateButtonRef]);
 
 
 
@@ -79,10 +79,10 @@ function WordCardConteiner () {
         showTranslateButtonRef={showTranslateButtonRef}
         isFinished={isFinished}
         tags={Words[currentIndex].tags}
-        english={Words[currentIndex].english}
+        foreign={Words[currentIndex].foreign}
         transcription={Words[currentIndex].transcription}
-        translated={translated}
-        russian={Words[currentIndex].russian}
+        wasTranslated={wasTranslated}
+        translated={Words[currentIndex].translated}
         showTranslate={showTranslate}
         translatedWords={translatedWords}
         currentIndex={currentIndex.toString()}

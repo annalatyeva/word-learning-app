@@ -1,50 +1,39 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddNewWord.css';
+
+let saveButton = require("../../../assets/save-button.png");
+let cancelButton = require("../../../assets/cancel-button.png");
+let saveButtonDisabled = require("../../../assets/save-button-disabled.png")
 
 function AddNewWord({ updateWords }) {
   const [editNew, setEditNew] = useState(false);
-  const [newWord, setNewWord] = useState({ english: '', transcription: '', russian: '' });
-  const [inputValue, setInputValue] = useState('');
-  const [translatedValue, setTranslatedValue] = useState('');
+  const [newWord, setNewWord] = useState({ foreign: '', transcription: '', translated: '' });
+  const [isDisabled, setIsDisabled] = useState(true);
 
-  const handleAddInput = () => {
+  useEffect(() => {
+    if (newWord.foreign.length !== 0 && newWord.transcription.length !== 0 && newWord.translated.length !== 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [newWord]);
+  
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setNewWord(prevState => ({ ...prevState, [name]: value }));
+  }
+
+  const handleshowInput = () => {
     if (!editNew) {
       setEditNew(true);
     } else {
       updateWords(newWord); 
-      setNewWord({ english: '', transcription: '', russian: '' });
+      setNewWord({ foreign: '', transcription: '', translated: '' });
       setEditNew(false);
     }
   };
 
-  const handleInputChange = async (e) => {
-    setInputValue(e.target.value);
-
-    const url = 'https://google-translate1.p.rapidapi.com/language/translate/v2';
-    const options = {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Accept-Encoding': 'application/gzip',
-        'X-RapidAPI-Key': '165a628438mshba6f7a5e5627ca3p15cb6ejsn2a041c6b0d20',
-        'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
-      },
-      body: new URLSearchParams({
-        q: e.target.value,
-        target: 'ru',
-        source: 'en'
-      })
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      setTranslatedValue(result.data.translations[0].translatedText);
-    } catch (error) {
-      console.error('Error translating text:', error);
-    }
-  };
 
   const handleCancel = () => {
     setEditNew(false);
@@ -54,22 +43,22 @@ function AddNewWord({ updateWords }) {
     <tr className={editNew ? "input-tr" : "add-new-word-tr"}>
       {!editNew ? (
         <td colSpan="4">
-          <button className='add-new-word' onClick={handleAddInput}>Добавить новое слово</button>
+          <button className='add-new-word' onClick={handleshowInput}>Добавить новое слово</button>
         </td>
       ) : (
         <>
           <td>
-            <input type="text" name="english" value={inputValue} onChange={handleInputChange} />
+            <input type="text" name="foreign" onChange={handleInputChange} />
           </td>
           <td>
-            <input name="transcription" value={translatedValue} onChange={handleInputChange} />
+            <input type="text" name="transcription" onChange={handleInputChange} />
           </td>
           <td>
-            <input name="russian" value={translatedValue} onChange={handleInputChange} />
+            <input type="text" name="translated" onChange={handleInputChange} />
           </td>
           <td>
-            <button onClick={handleAddInput}>OK</button>
-            <button onClick={handleCancel}>No</button>
+            <button disabled={isDisabled} className='TableButton' onClick={handleshowInput}><img src={isDisabled ? saveButtonDisabled : saveButton} alt="save button" /></button>
+            <button className='TableButton' onClick={handleCancel}><img src={cancelButton} alt="cancel button" /></button>
           </td>
         </>
       )}

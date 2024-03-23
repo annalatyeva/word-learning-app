@@ -54,6 +54,9 @@ button:hover:enabled {
 button:active:enabled {
     box-shadow: 0px 3px 10px 2px var(--boxShadowColor) inset;
 }
+button:disabled {
+    cursor: default;
+}
 
 td input {
     padding: 0;
