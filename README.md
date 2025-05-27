@@ -1,5 +1,7 @@
 <h1 align='center'>📜 Foreign Language Learning Project 📜</h1>
 
+<h3 align="center"><a href="https://annalatyeva.github.io/word-learning-app/">View site</a></h3>
+
 ## Description
 This React project is designed to help users learn foreign words effectively. It features two main modes: a main page with a table listing words including the word itself, transcription, and translation, and a flashcard page where users can flip through cards to study words. Each flashcard displays a foreign word and its transcription, with the translation revealed upon button click. Additionally, there is a custom 404 error page for handling navigation errors.
 
@@ -29,7 +31,7 @@ This React project is designed to help users learn foreign words effectively. It
 - react-router-dom
 
 ## How to Run the Project
-1. Clone the repository from [GitHub](https://github.com/your-repo)
+1. Clone the repository from [GitHub](https://github.com/word-learning-app)
 2. Install dependencies using npm install
 3. Start the development server with npm start
 4. Enjoy learning words
