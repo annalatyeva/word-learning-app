@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/word-learning-app/static/css/main.3d121ff9.css",
-    "main.js": "/word-learning-app/static/js/main.7764e2ea.js",
+    "main.js": "/word-learning-app/static/js/main.0f1b187d.js",
     "static/js/787.f9399eaf.chunk.js": "/word-learning-app/static/js/787.f9399eaf.chunk.js",
     "static/media/missing-page.jpg": "/word-learning-app/static/media/missing-page.e65433c49e81c5e85b4f.jpg",
     "static/media/logo.png": "/word-learning-app/static/media/logo.ff000d3e13394f28726b.png",
     "index.html": "/word-learning-app/index.html",
     "main.3d121ff9.css.map": "/word-learning-app/static/css/main.3d121ff9.css.map",
-    "main.7764e2ea.js.map": "/word-learning-app/static/js/main.7764e2ea.js.map",
+    "main.0f1b187d.js.map": "/word-learning-app/static/js/main.0f1b187d.js.map",
     "787.f9399eaf.chunk.js.map": "/word-learning-app/static/js/787.f9399eaf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3d121ff9.css",
-    "static/js/main.7764e2ea.js"
+    "static/js/main.0f1b187d.js"
   ]
 }
